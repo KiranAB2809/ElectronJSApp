@@ -1,0 +1,19 @@
+{
+  "name": "SampleProject",
+  "version": "1.0.0",
+  "description": "Sample web application developed using Electron",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron .",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "Kiran AB",
+  "license": "ISC",
+  "devDependencies": {
+    "electron-reload": "^1.2.5"
+  },
+  "dependencies": {
+    "axios": "^0.18.0"
+  }
+}
