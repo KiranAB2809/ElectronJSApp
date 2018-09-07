@@ -3,17 +3,20 @@ const path = require('path')
 const BrowserWindow = electron.remote.BrowserWindow
 const axios = require('axios')
 
-var price = document.querySelector('h1')
-var targetPrice = document.getElementById('targetPrice')
-
+ngOnInit();
 getBTC();
 setInterval ( getBTC, 30000 );
 
+function ngOnInit(){
+    var price = document.querySelector('h1')
+    var targetPrice = document.getElementById('targetPrice')
+}
+
 function getBTC(){
-    axios.get('https://min-api.cryptocompare.com/data/pricemulti?fsyms=BTC&tsyms=USD')
+    axios.get('https://min-api.cryptocompare.com/data/pricemulti?fsyms=BTC&tsyms=INR')
     .then(res => {
-        const cryptos = res.data.BTC.USD
-        price.innerHTML = '$'+cryptos.toLocaleString('en')
+        const cryptos = res.data.BTC.INR
+        price.innerHTML = cryptos.toLocaleString('en-IN', { style:'currency', currency: 'INR' } );
     })
 }
 
