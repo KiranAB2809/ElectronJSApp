@@ -1,5 +1,6 @@
 require('electron-reload')(__dirname)
 const { app, BrowserWindow, Menu } = require('electron')
+const ipc = require('electron').ipcMain
 const path = require('path')
 const url = require('url')
 const shell = require('electron').shell
@@ -65,4 +66,8 @@ app.on('activate', () => {
     if (win === null) {
         createWindow()
     }
+})
+
+ipc.on('update-notify-value', function(event,arg){
+    win.webContents.send('targetPriceVal',arg)
 })

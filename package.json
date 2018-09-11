@@ -5,12 +5,15 @@
   "main": "main.js",
   "scripts": {
     "start": "electron .",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "package-mac": "electron-packager . --overwrite --platform=darwin --arch=x64 --icon=assets/icons/mac/icon.icns --prune=true --out=release-builds",
+    "package-win": "electron-packager ./ SampleProject --all --out ~/Desktop/SoundMachine --overwrite --icon=assets/images/btc.png",
+    "package-linux": "electron-packager ./ SampleProject --overwrite --asar=true --platform=linux --arch=x64 --icon=assets/images/btc.png --prune=true --out=release-builds"
   },
   "keywords": [],
   "author": "Kiran AB",
   "license": "ISC",
   "devDependencies": {
+    "electron-packager": "^12.1.1",
     "electron-reload": "^1.2.5"
   },
   "dependencies": {
